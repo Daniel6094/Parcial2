@@ -1,0 +1,5 @@
+II PARTE: Teoría. 
+1. Explique con sus palabras que es Herencia en programación en objetos. 
+
+
+La herencia en programación orientada a objetos es una forma de crear nuevas clases basadas en clases existentes. Piensa en ello como una relación de familia: una clase hija hereda características de una clase madre.
