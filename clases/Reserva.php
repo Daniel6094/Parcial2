@@ -7,6 +7,7 @@ class Reserva {
     private $telefono;
     private $fechaReserva;
     private $observaciones;
+    private static $rutaArchivoReservas = "../datos/reservas.txt";
 
     public function __construct($hotel, $nombre, $apellido, $telefono, $fechaReserva, $observaciones) {
         $this->hotel = $this->validarRequerido($hotel, 'Hotel');
@@ -26,11 +27,11 @@ class Reserva {
 
     public function guardarEnArchivo() {
         $datos = "$this->hotel,$this->nombre,$this->apellido,$this->telefono,$this->fechaReserva,$this->observaciones\n";
-        file_put_contents('../datos/reservas.txt', $datos, FILE_APPEND);
+        file_put_contents(self::$rutaArchivoReservas, $datos, FILE_APPEND);
     }
 
     public static function obtenerTodasLasReservas() {
-        $archivo = '../datos/reservas.txt';
+        $archivo =self::$rutaArchivoReservas;
         $reservas = [];
         if (file_exists($archivo)) {
             $contenido = file($archivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
